@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com</groupId>
-	<artifactId>zsx</artifactId>
+	<artifactId>ssh</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>zsx Maven Webapp</name>
@@ -173,7 +173,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>zsx</finalName>
+		<finalName>ssh</finalName>
 		
 		<!--  -->
 		<sourceDirectory>src/main/java</sourceDirectory>
