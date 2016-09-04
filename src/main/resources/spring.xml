@@ -26,6 +26,12 @@
 
 	<!-- 自动扫描dao和service包(自动注入) -->
 	<context:component-scan base-package="com.zsx.web.dao,com.zsx.web.service" />
+	
+	<!-- <context:component-scan base-package="com.zsx.web.*" >
+		在主容器中（applicationContext.xml），将Controller的注解排除掉
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan> -->
 
 
 </beans>			
