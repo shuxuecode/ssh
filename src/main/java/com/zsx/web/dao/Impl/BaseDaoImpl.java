@@ -6,11 +6,15 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,24 +22,30 @@ import com.zsx.web.dao.BaseDaoI;
 
 @Repository
 public class BaseDaoImpl<T> implements BaseDaoI<T> {
-
-	@Autowired
-	public SessionFactory sessionFactory;
+// extends HibernateDaoSupport 
+	
+//	@Autowired
+	@Resource
+	private SessionFactory sessionFactory;
 
 	/**
 	 * 获得当前事物的session
-	 * 
 	 * @return org.hibernate.Session
 	 */
-	public Session getCurrentSession() {
-//		return this.sessionFactory.getCurrentSession();
+	protected Session getCurrentSession() {
+//		return null;
+		return sessionFactory.getCurrentSession();
 		//从会话工厂获取一个session
-		return this.sessionFactory.openSession();
+//		return sessionFactory.openSession();
 	}
 
 	public Serializable save(T o) {
 		if (o != null) {
-			return this.getCurrentSession().save(o);
+//			return getHibernateTemplate().save(o);
+//			Transaction transaction = getCurrentSession().beginTransaction();
+			Serializable save = this.getCurrentSession().save(o);
+//			transaction.commit();
+			return save;
 		}
 		return null;
 	}

@@ -60,6 +60,12 @@ public class UserServiceImpl implements UserService {
 		return tuList;
 	}
 
+	@Override
+	public void addUser(Tuser user) {
+//		user.setName(name);
+		userDao.save(user);
+	}
+
 	/*@Override
 	public List<String> getUserPrivileges(String userId) {
 		List<String> urlList = new ArrayList<String>();

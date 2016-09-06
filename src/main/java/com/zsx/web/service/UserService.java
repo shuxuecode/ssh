@@ -23,6 +23,8 @@ public interface UserService {
 	 * 获取所有的用户信息——需要改为只有管理员才可以看到
 	 */
 	List<Tuser> getAllUser();
+	
+	void addUser(Tuser user);
 //	/**
 //	 * 根据用户id获取用户的所有权限，用于拦截器限制
 //	 */

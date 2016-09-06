@@ -10,7 +10,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:spring.xml,classpath:spring-hibernate.xml
+			classpath:applicationContext.xml,classpath:spring-hibernate.xml
 			
 			<!-- 第二种写法： 默认的spring配置文件是在WEB-INF下的applicationContext.xml -->
 			<!-- <param-value>/WEB-INF/applicationContext.xml</param-value>   -->

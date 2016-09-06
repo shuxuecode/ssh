@@ -11,11 +11,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/mvc  
       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
-	<!-- 注解扫描包 , 多个写法:com.zsx.web.*,org.weixin.*-->
+	<!-- 注解扫描包 , 多个写法:com.zsx.web.*,org.weixin.*  (以完成bean创建和自动依赖注入的功能)-->
 	<context:component-scan base-package="com.zsx.web.*" >
 		<!-- springMVC配置文件中将Service注解给去掉 -->
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 	
 	<!-- <context:component-scan /> -->
@@ -114,28 +115,29 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	</bean> -->
 	
 	<!-- 拦截器 -->
-	<!-- <mvc:interceptors>
-		<mvc:interceptor>
+	<mvc:interceptors>
+		<!-- <mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="com.weixin.core.interceptors.EncodingInterceptor" />
-		</mvc:interceptor>
+		</mvc:interceptor> -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.weixin.core.interceptors.AuthInterceptor">
-				不需要权限验证的地址
+			<bean class="com.zsx.core.interceptors.AuthInterceptor">
+				<!-- 不需要权限验证的地址  -->
 				<property name="excludeUrls">
 					<list>
-						<value>wechat</value>登录页面
-						<value>checkname</value>注册时检查用户名是否重复
-						<value>register</value>注册页面
-						<value>login</value>登录操作
-						<value>logout</value>登出操作
-						<value>signin</value>用户注册操作
-						<value>validatecode</value>生成验证码
+						<value>wechat</value><!-- 登录页面 -->
+						<value>checkname</value><!-- 注册时检查用户名是否重复 -->
+						<value>register</value><!-- 注册页面 -->
+						<value>login</value><!-- 登录操作 -->
+						<value>logout</value><!-- 登出操作 -->
+						<value>signin</value><!-- 用户注册操作 -->
+						<value>validatecode</value><!-- 生成验证码 -->
+						<value>user/getUserList</value>
 					</list>
 				</property>
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 
 </beans>  

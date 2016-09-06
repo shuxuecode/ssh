@@ -1,5 +1,6 @@
 package ssh;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.alibaba.fastjson.JSON;
 import com.zsx.web.dao.UserDao;
 import com.zsx.web.entity.Tuser;
+import com.zsx.web.service.UserService;
 
 /**
  * 单元测试
@@ -28,25 +30,25 @@ import com.zsx.web.entity.Tuser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-@WebAppConfiguration
+// 
+@WebAppConfiguration(value = "src/main/webapp") //可以不填，默认此目录
 
-@ContextConfiguration(locations = { "file:src/main/resources/spring.xml", "file:src/main/resources/spring-hibernate.xml", "file:src/main/resources/springMVC-servlet.xml" })
+@ContextConfiguration(locations = { "file:src/main/resources/applicationContext.xml", "file:src/main/resources/spring-hibernate.xml", "file:src/main/resources/springMVC-servlet.xml" })
 
-@Transactional
+// 注意下面这种方式已经过时了，不推荐了， 直接去掉即可
+//@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false) // 如果等于true，则每个单元测试都进行事务回滚 
+//@Transactional
 public class UtilTest {
 	
 	@Autowired
 	private UserDao userDao;
 	
+	@Autowired
+	private UserService userService;
+	
 	@Before
 	public void before(){
-		Tuser user = new Tuser();
-		user.setId("2222");
-		user.setName("Zsx");
-		user.setPwd("pwd");
-		userDao.save(user);
-		
-//		userDao.executeSql("INSERT INTO `user` VALUES ('221','zhao','shuxue')");
+//		userDao.executeSql("INSERT INTO `user` VALUES ('2231','zhao','shuxue')");
 		System.out.println("准备测试！！！");
 	}
 	
@@ -72,6 +74,18 @@ public class UtilTest {
 	
 	
 	
+	@Test
+	public void add(){
+		Tuser user = new Tuser();
+		user.setId("9");
+		user.setName("Zsx");
+		user.setPwd("pwd");
+//		Serializable save = userDao.save(user);
+//		System.out.println(save);
+//		userDao.saveOrUpdate(user);
+		
+		userService.addUser(user);
+	}
 	
 	
 	
