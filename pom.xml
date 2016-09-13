@@ -112,6 +112,18 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.38</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-redis</artifactId>
+		    <version>1.7.2.RELEASE</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
 
 		<!-- junit测试包 -->
 		<dependency>
@@ -270,4 +282,7 @@
 		</plugins> 
 		
 	</build>
+	<modules>
+		<module>?</module>
+	</modules>
 </project>
