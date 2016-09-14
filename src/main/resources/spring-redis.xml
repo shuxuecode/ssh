@@ -33,10 +33,15 @@
 		p:password="${redis.pass}"  
 		p:pool-config-ref="poolConfig"/>  
     
+    
+    <!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
+        <property name="connectionFactory"   ref="connectionFactory" />  
+    </bean> -->
+    
     <bean id="stringSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer" />
     
     <!-- 开启事务，可以通过transcational注解控制 -->
-	<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">  
 		<property name="connectionFactory" ref="connectionFactory" />  
 		<property name="keySerializer" ref="stringSerializer" />
 		<property name="valueSerializer">  

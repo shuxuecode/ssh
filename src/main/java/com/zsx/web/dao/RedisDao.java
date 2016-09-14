@@ -1,23 +1,25 @@
 package com.zsx.web.dao;
 
 import java.util.List;
+import java.util.Map;
 
-public interface RedisDao<T> {
+public interface RedisDao {
 
 	/**
 	 * 新增
-	 * @param t
+	 * @param key
+	 * @param value
 	 * @return
 	 */
-	boolean add(T t);
+	boolean add(String key, String value);
 	
 	
 	/**
 	 * 批量新增
-	 * @param list
+	 * @param map
 	 * @return
 	 */
-	boolean add(List<T> list);
+	boolean add(Map<String, String> map);
 	
 	
 	/** 
@@ -32,18 +34,19 @@ public interface RedisDao<T> {
      */  
     void delete(List<String> keys);  
       
-    /** 
-     * 修改 
-     * @param t 
-     * @return  
-     */  
-    boolean update(T t);  
+    /**
+     * 修改  
+     * @param key
+     * @param value
+     * @return
+     */
+    boolean update(String key, String value);  
   
     /** 
      * 通过key获取 
      * @param keyId 
      * @return  
      */  
-    T get(String key);
+    String get(String keyId);
 	
 }

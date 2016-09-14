@@ -1,22 +1,19 @@
 package ssh;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.zsx.web.dao.RedisDao;
-import com.zsx.web.entity.Tuser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -27,8 +24,8 @@ public class RedisUtilTest {
 	@Resource(name = "redisTemplate")
 	private RedisTemplate<String, String> template;
 	
-//	@Autowired
-//	private RedisDao<Tuser> redisDaoImpl;
+	@Autowired
+	private RedisDao redisDaoImpl;
 	
 	
 	@org.springframework.cache.annotation.Cacheable(value = "testId", key = "'id_' + #id")
@@ -47,25 +44,38 @@ public class RedisUtilTest {
 	
 	@Test
 	public void test2() {
+		Boolean hasKey = template.hasKey("zsx");
+		System.out.println(hasKey);
 		testCache(1);
 	}
 	
 	
 	@Test
 	public void testAdd() {
-//		redisDaoImpl.add(new Tuser());
-		
-		template.execute(new RedisCallback<Boolean>() {
-
-			@Override
-			public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
-                byte[] key  = template.getStringSerializer().serialize("asdf");  
-                byte[] name = template.getStringSerializer().serialize("zxcvqwer");  
-                Boolean setNX = connection.setNX(key, name);
-                return setNX; 
-			}
-			
-		});
+		System.out.println(redisDaoImpl.add("nihao", "我很好"));
 	}
 	
+	@Test
+	public void 批量更新() {
+		Map<String, String> map = new HashMap<>();
+		map.put("aaa:1", "abcd");
+		map.put("aaa:2", "efg");
+		map.put("aaa:3", "hijklmn");
+		System.out.println(redisDaoImpl.add(map));
+	}
+	
+	@Test
+	public void 删除() {
+		redisDaoImpl.delete("asd");
+	}
+	
+	@Test
+	public void 更新() {
+		System.out.println(redisDaoImpl.update("aaa:2", "!@#$%^&"));
+	}
+	
+	@Test
+	public void 获取() {
+		System.out.println(redisDaoImpl.get("age"));
+	}
 }
