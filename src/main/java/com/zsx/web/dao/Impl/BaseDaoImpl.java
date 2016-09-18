@@ -12,17 +12,12 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.zsx.web.dao.BaseDaoI;
+import com.zsx.web.dao.BaseDao;
 
 @Repository
-public class BaseDaoImpl<T> implements BaseDaoI<T> {
-// extends HibernateDaoSupport 
+public class BaseDaoImpl<T> implements BaseDao<T> {
 	
 //	@Autowired
 	@Resource
@@ -33,18 +28,14 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 	 * @return org.hibernate.Session
 	 */
 	protected Session getCurrentSession() {
-//		return null;
-//		return sessionFactory.getCurrentSession();
+//		return sessionFactory.getCurrentSession(); // hibernate 3.x版本后摒弃该方法
 		//从会话工厂获取一个session
 		return sessionFactory.openSession();
 	}
 
 	public Serializable save(T o) {
 		if (o != null) {
-//			return getHibernateTemplate().save(o);
-//			Transaction transaction = getCurrentSession().beginTransaction();
 			Serializable save = this.getCurrentSession().save(o);
-//			transaction.commit();
 			return save;
 		}
 		return null;
@@ -67,10 +58,7 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 		Query q = this.getCurrentSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
-				//q.setParameter(key, params.get(key));
-//				q.setParameter(key, params.get(key));
-//				q.setParameter("", "");
-//				q.setparameterlist
+				q.setParameter(key, params.get(key));
 			}
 		}
 		List<T> l = q.list();
@@ -107,7 +95,7 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 		Query q = this.getCurrentSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
-//				q.setParameter(key, params.get(key));
+				q.setParameter(key, params.get(key));
 			}
 		}
 		return q.list();
@@ -118,7 +106,7 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 		Query q = this.getCurrentSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
-//				q.setParameter(key, params.get(key));
+				q.setParameter(key, params.get(key));
 			}
 		}
 		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();

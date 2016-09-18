@@ -12,7 +12,7 @@ import java.util.Map;
  * @param <T>
  *            模型
  */
-public interface BaseDaoI<T> {
+public interface BaseDao<T> {
 
 	/**
 	 * 保存一个对象
