@@ -34,9 +34,9 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 	 */
 	protected Session getCurrentSession() {
 //		return null;
-		return sessionFactory.getCurrentSession();
+//		return sessionFactory.getCurrentSession();
 		//从会话工厂获取一个session
-//		return sessionFactory.openSession();
+		return sessionFactory.openSession();
 	}
 
 	public Serializable save(T o) {

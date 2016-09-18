@@ -77,7 +77,7 @@ public class UtilTest {
 	@Test
 	public void add(){
 		Tuser user = new Tuser();
-		user.setId("9");
+		user.setId("99");
 		user.setName("Zsx");
 		user.setPwd("pwd");
 //		Serializable save = userDao.save(user);
