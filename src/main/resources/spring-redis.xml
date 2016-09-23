@@ -55,6 +55,14 @@
 		<constructor-arg ref="redisTemplate" />
 	</bean>
 
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg index="0" ref="poolConfig"/>
+		<constructor-arg index="1" value="127.0.0.1"/>
+		<constructor-arg index="2" value="6379" type="int"/>
+		<constructor-arg index="3" value="30000" type="int"/>
+		<constructor-arg index="4" value="zsx@redis"/>
+	</bean>
+	
 </beans>
 
 
