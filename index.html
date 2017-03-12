@@ -6,11 +6,18 @@
 
 		<title>个人简历</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://libs.bsdev.cn/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap.min.css">
 		<style type="text/css">
 			body {
 				font-family: "Microsoft YaHei";
+				background-image: url(bg.jpg);
+				margin-top: 50px;
+				margin-bottom: 100px;
 			}
+			
+			/*.container {
+				background-color: #f6f6f6;
+			}*/
 			
 			h1,
 			.h1,
@@ -22,31 +29,18 @@
 				margin-top: 22px;
 			}
 			
-			img {
-				display: block;
+			h5 {
+				margin-top: 35px
 			}
 			
 			p {
-				margin: 0 0 10px;
+				/*margin: 0 0 10px;*/
 				line-height: 24px;
-				margin-bottom: 20px;
+				/*margin-bottom: 20px;*/
 			}
 			
 			li {
-				padding-bottom: 5px;
-			}
-			
-			blockquote p {
-				font-size: 16px;
-			}
-			
-			.row {
-				margin-top: 24px;
-				margin-bottom: 40px;
-			}
-			
-			li pre {
-				margin-top: 8px;
+				padding-bottom: 0px;
 			}
 		</style>
 
@@ -57,7 +51,7 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-offset-1">
 					<div class="htmlcontent">
-						<h2>我的个人简历</h2>
+						<h2 style="text-align: center;">我的个人简历</h2>
 						<h3>个人信息</h3>
 						<table width="100%">
 							<tr>
@@ -85,8 +79,8 @@
 							</tr>
 							<tr>
 								<td>
-									<ul>
-										<li>2014.03 - 2014.09</li>
+									<ul style="margin: 8px">
+										<li style="padding-bottom: 0px;">2014.03 - 2014.09</li>
 									</ul>
 								</td>
 								<td>石家庄火云文化传播公司</td>
@@ -94,8 +88,8 @@
 							</tr>
 							<tr>
 								<td>
-									<ul>
-										<li>2014.09 - 2015.09</li>
+									<ul style="margin: 8px">
+										<li style="padding-bottom: 0px;">2014.09 - 2015.09</li>
 									</ul>
 								</td>
 								<td>北京东和盛达科技有限公司</td>
@@ -103,8 +97,8 @@
 							</tr>
 							<tr>
 								<td>
-									<ul>
-										<li>2015.10 - 至今</li>
+									<ul style="margin: 8px">
+										<li style="padding-bottom: 0px;">2015.10 - 至今</li>
 									</ul>
 								</td>
 								<td>金电联行（北京）信息技术有限公司</td>
@@ -139,33 +133,50 @@
 							<li>能够分析并解决软件开发过程中的问题，能够独立进行单元测试和功能测试，具有编写清晰规范的开发文档能力</li>
 						</ul>
 						<h3>项目经验</h3>
-						<h4>1.项目名称：市精准扶贫数据库管理系统</h4>
+						<h5><strong>1.项目名称：市精准扶贫数据库管理系统</strong></h5>
 						<p><strong>技术实现</strong>：SpringBoot+MyBatis+MySql+ActiveMQ+Activiti+Swagger+jsp+Bootstrap+Echarts+Tomcat+Nginx</p>
 						<p><strong>项目简介</strong>：该系统主要包括了扶贫信息管理、帮扶责任人管理、脱贫评估、监督反馈管理、扶贫档案审核、统计分析和后台管理等几大功能模块，可以对贫困户信息及其关联的一系列信息数据进行增删改查的操作，实现了政府扶贫信息的统一便捷管理。此外还提供了移动端app的服务接口，方便了各级用户随时随地的获取及编辑帮扶信息，为政府打好精准扶贫攻坚战提供了强有力的技术保障。</p>
 						<p><strong>责任描述</strong>：负责前期需求分析、数据库设计、技术架构，中期代码开发、人员任务规划，后期的优化、部署维护等一系列工作</p>
-						<h4>2.项目名称：数据工厂企业查询接口服务系统</h4>
+						<h5><strong>2.项目名称：数据工厂企业查询接口服务系统</strong></h5>
 						<p><strong>技术实现</strong>：Spring+Struts+Hibernate+Jdbc+Swagger+Redis+Dubbo+ZooKeeper</p>
 						<p><strong>项目简介</strong>：该系统提供了诸多与企业大数据相关的查询服务接口，主要分为接口服务模块、计费模块、日志模块、后台管理模块等。用户可以根据Restful风格的api查询多达三百项的企业相关数据，系统能够快速反馈查询结果并记录所有的接口查询历史，同时系统也能针对不同接口进行计费等相关操作。</p>
 						<p><strong>责任描述</strong>：参与了接口服务模块和计费模块的项目重构工作，利用Dubbo进行分布式架构，以便提高稳定性和可扩展性，使用缓存技术实现了快速响应和节约成本，同时还负责部分模块的功能优化工作。</p>
-						<h4>3.项目名称：大数据社会化治理平台</h4>
+						<h5><strong>3.项目名称：大数据社会化治理平台</strong></h5>
 						<p><strong>技术实现</strong>：Spring+Struts+MyBatis+Ehcache+Apache poi+Solr+Servlet+Highcharts+MySql</p>
 						<p><strong>项目描述</strong>：该平台是公司主要大数据产品之一，提供了企业数据检索、数据体检服务、信用跟踪、企业环境分析、征信报告和数据信用专家服务等多个服务模块，满足了当前社会治理的综合性需求，为企业大数据信用信息提供一条龙服务。</p>
 						<p><strong>责任描述</strong>： 主要负责企业检索、数据体检、征信报告等功能模块的技术分析、代码开发和后期维护优化等工作。</p>
-						<h4>4.项目名称：公安部门警务中心办公系统</h4>
+						<h5><strong>4.项目名称：公安部门警务中心办公系统</strong></h5>
 						<p><strong>技术实现</strong>：SpringMVC+Spring+Hibernate+Pgis+Jquery+Easyui+Bootstrap+Oracle+Activiti等</p>
 						<p><strong>项目简介</strong>：该系统用于公安部门电子化办公，提高办公效率，主要有以下几大模块：职工出勤考核、公出请假审批、案件流程审批、以房管人、接处警管理、案件统计分析、社区警务评估、运维系统等。</p>
 						<p><strong>责任描述</strong>： 主要负责审批功能和后台oa系统的需求分析、数据库设计、技术架构、代码开发及一系列维护优化。</p>
-						<h4>5.项目名称：微信公众平台管理系统</h4>
+						<h5><strong>5.项目名称：微信公众平台管理系统</strong></h5>
 						<p><strong>技术实现</strong>：SpringMVC+Hibernate+Spring+Druid+Jquery+Easyui+Bootstrap+Mysql</p>
 						<p><strong>项目简介</strong>：该系统主要实现了微信公众号的主要功能，包括：自定义菜单、智能回复、图文消息管理及群发、素材管理、微信支付和二维码管理等。此外，系统后台管理模块还提供了快速接入微信公众号、多账号管理、群发消息审核、定向推广和微信墙摇一摇等多个扩展功能模块。</p>
 						<p><strong>责任描述</strong>： 负责该系统的需求分析、功能设计、数据库设计、技术架构、代码开发及后续功能改造优化等工作。</p>
-						<h4>6.项目名称：市民政部门信息化管理系统</h4>
+						<h5><strong>6.项目名称：市民政部门信息化管理系统</strong></h5>
 						<p><strong>技术实现</strong>：Struts+Hibernate+Spring+Ajax+Jquery+Easyui+jpbm4+Oracle</p>
 						<p><strong>项目简介</strong>：该系统主要用于政府民政部门及其子机构信息化办公使用,管理员可以通过该系统创建拥有不同权限的角色用户，各部门用户可以按照政府部门职能要求来对多项政务信息进行删除改查、提交上级和驳回重申等一系列操作。</p>
 						<p><strong>责任描述</strong>：参与了该系统主要功能模块的业务分析、数据模型设计、功能设计、技术架构、代码开发及后期维护优化等。</p>
+
 						<h3>自我评价</h3>
-						<p>1、热爱技术，专业知识扎实，具有较好的逻辑思维能力和表达能力； 2、自控力强，善于思考，思路清晰，能够独立分析和解决问题，工作认真严谨，能够承受一定的工作压力； 3、有较好的交流沟通能力，责任心强，具备良好的团队合作精神； 4、能够独立完成小型系统或项目的设计和开发，积累了一些架构经验； 5、学习能力强，喜欢研究新的技术，热衷开源，乐于分享。
-						</p>
+						<ul>
+							<li>
+								<p>热爱技术，专业知识扎实，具有较好的逻辑思维能力和表达能力；</p>
+							</li>
+							<li>
+								<p>自控力强，善于思考，思路清晰，能够独立分析和解决问题，工作认真严谨，能够承受一定的工作压力；</p>
+							</li>
+							<li>
+								<p>有较好的交流沟通能力，责任心强，具备良好的团队合作精神；</p>
+							</li>
+							<li>
+								<p>能够独立完成小型系统或项目的设计和开发，积累了一些架构经验；</p>
+							</li>
+							<li>
+								<p>学习能力强，喜欢研究新的技术，热衷开源，乐于分享。</p>
+							</li>
+						</ul>
+
 					</div>
 				</div>
 			</div>
