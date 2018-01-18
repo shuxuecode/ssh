@@ -25,12 +25,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	/**
 	 * 获得当前事物的session
+     * 应该采用sessionFactory.getCurrentSession();不能采用
+     sessionFactory.openSession();否则事务不能自动提交，同时session也不能自动关闭。
 	 * @return org.hibernate.Session
 	 */
 	protected Session getCurrentSession() {
-//		return sessionFactory.getCurrentSession(); // hibernate 3.x版本后摒弃该方法
-		//从会话工厂获取一个session
-		return sessionFactory.openSession();
+		return sessionFactory.getCurrentSession();
+//		从会话工厂获取一个session
+//		return sessionFactory.openSession();
 	}
 
 	public Serializable save(T o) {
