@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.zsx.web.dao.RedisDao;
 
-@Repository
+//@Repository
 public class RedisDaoImpl implements RedisDao {
 
 	// @Resource(name = "redisTemplate")

@@ -1,10 +1,9 @@
 package ssh;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
+import com.alibaba.fastjson.JSON;
+import com.zsx.web.dao.UserDao;
+import com.zsx.web.entity.Tuser;
+import com.zsx.web.service.UserService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,14 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.alibaba.fastjson.JSON;
-import com.zsx.web.dao.UserDao;
-import com.zsx.web.entity.Tuser;
-import com.zsx.web.service.UserService;
 
 /**
  * 单元测试
@@ -77,7 +69,7 @@ public class UtilTest {
 	@Test
 	public void add(){
 		Tuser user = new Tuser();
-		user.setId("99");
+		user.setId("9");
 		user.setName("Zsx");
 		user.setPwd("pwd");
 //		Serializable save = userDao.save(user);
